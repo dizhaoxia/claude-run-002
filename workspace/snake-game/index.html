@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🐍 贪吃蛇</h1>
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="label">得分</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">最高分</span>
+                    <span id="high-score" class="value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="canvas-wrapper">
+            <canvas id="game-canvas" width="400" height="400"></canvas>
+
+            <!-- 开始遮罩层 -->
+            <div id="start-overlay" class="overlay">
+                <div class="overlay-content">
+                    <p class="overlay-title">准备开始</p>
+                    <p class="overlay-hint">按 空格键 或 点击按钮 开始游戏</p>
+                    <button id="start-btn" class="btn">开始游戏</button>
+                </div>
+            </div>
+
+            <!-- 结束遮罩层 -->
+            <div id="gameover-overlay" class="overlay hidden">
+                <div class="overlay-content">
+                    <p class="overlay-title">游戏结束</p>
+                    <p class="final-score">本局得分：<span id="final-score">0</span></p>
+                    <p id="new-record" class="new-record hidden">🎉 新纪录！</p>
+                    <button id="restart-btn" class="btn">再来一局</button>
+                </div>
+            </div>
+
+            <!-- 暂停遮罩层 -->
+            <div id="pause-overlay" class="overlay hidden">
+                <div class="overlay-content">
+                    <p class="overlay-title">已暂停</p>
+                    <p class="overlay-hint">按 空格键 继续</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="game-footer">
+            <p>⌨️ 方向键 / WASD 移动 · 空格 暂停</p>
+        </footer>
+
+        <!-- 移动端方向键 -->
+        <div class="touch-controls">
+            <button class="dir-btn" data-dir="up">▲</button>
+            <div class="touch-row">
+                <button class="dir-btn" data-dir="left">◀</button>
+                <button class="dir-btn" data-dir="down">▼</button>
+                <button class="dir-btn" data-dir="right">▶</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
